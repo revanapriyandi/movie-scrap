@@ -12,34 +12,15 @@ const home = async (req, res, next) => {
         const response = await Axios.get(otakudeBaseUrl);
         const $ = cheerio.load(response.data);
 
-        const ongoingResponse = $(".venz")
+        const ongoingResponse = $(".venz").eq(0).find("ul > li");
         
         let ongoing = [];
-        let episode, uploaded_on, day_updated, thumb, title, link, id;
-        ongoingResponse.children()
-            .eq(0)
-            .find("ul > li")
-            .each((i, elem) => {
-                $(elem).find(".thumb > a").filter(function () {
-                    title = $(this).find(".thumbz > h2").text();
-                    thumb = $(this).find(".thumbz > img").attr("src");
-                    link = $(this).attr("href");
-                    id = link.replace(`${otakudeBaseUrl}anime/`, "");
-                });
-                uploaded_on = $(elem).find(".newnime").text();
-                episode = $(elem).find(".epz").text().replace(" ", "");
-                day_updated = $(elem).find(".epztipe").text().replace(" ", "");
-
-                ongoing.push({
-                    id,
-                    title,
-                    thumb,
-                    link,
-                    episode,
-                    uploaded_on,
-                    day_updated,
-                });
+        ongoingResponse.each((i, elem) => {
+            const url = $(elem).find("h2.jdlflm").eq(0).text();
+            ongoing.push({
+                url,
             });
+        });
 
 
         res.send({
