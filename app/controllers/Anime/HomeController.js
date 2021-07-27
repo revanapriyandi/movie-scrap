@@ -1,5 +1,5 @@
 const cheerio = require("cheerio");
-const { default: Axios } = require("axios");
+const axios  = require("axios");
 const {
   otakudeBaseUrl,
   urlApi,
@@ -9,14 +9,14 @@ const {
 
 const home = async (req, res, next) => {
     try {
-        const response = await Axios.get(otakudeBaseUrl);
+        const response = await axios.get("https://meownime.moe");
         const $ = cheerio.load(response.data);
 
-        const ongoingResponse = $(".venz").eq(0).find("ul > li");
+        const ongoingResponse = $(".site-main").eq(0).find("article");
         
         let ongoing = [];
         ongoingResponse.each((i, elem) => {
-            const url = $(elem).find("h2.jdlflm").eq(0).text();
+            const url = $(elem).find(".postedon").eq(0).text();
             ongoing.push({
                 url,
             });
