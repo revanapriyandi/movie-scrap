@@ -5,11 +5,11 @@ const {
   urlApi,
   seriesUrl,
   episodeUrl,
-} = require("../helpers/Constant");
-const { extractId } = require("../helpers/Extractor");
-const { addHttp } = require("../helpers/HttpAddons");
+} = require("../../helpers/Constant");
+const { extractId } = require("../../helpers/Extractor");
+const { addHttp } = require("../../helpers/HttpAddons");
 
-const { getBanner } = require("../helpers/BannerImage");
+const { getBanner } = require("../../helpers/BannerImage");
 
 const series = async (req, res, next) => {
   try {

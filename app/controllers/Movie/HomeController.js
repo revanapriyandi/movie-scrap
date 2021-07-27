@@ -5,9 +5,9 @@ const {
   urlApi,
   seriesUrl,
   episodeUrl,
-} = require("../helpers/Constant");
-const { extractId, isSeries } = require("../helpers/Extractor");
-const { convertToBanner } = require("../helpers/BannerImage");
+} = require("../../helpers/Constant");
+const { extractId, isSeries } = require("../../helpers/Extractor");
+const { convertToBanner } = require("../../helpers/BannerImage");
 
 const home = async (req, res, next) => {
   try {

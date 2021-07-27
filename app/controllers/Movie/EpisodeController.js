@@ -5,9 +5,9 @@ const {
   urlApi,
   seriesUrl,
   episodeUrl,
-} = require("../helpers/Constant");
+} = require("../../helpers/Constant");
 
-const { addHttp } = require("../helpers/HttpAddons");
+const { addHttp } = require("../../helpers/HttpAddons");
 
 const episode = async (req, res, next) => {
   try {

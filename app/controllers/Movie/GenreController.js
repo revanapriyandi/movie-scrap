@@ -1,7 +1,7 @@
 const cheerio = require("cheerio");
-const { baseUrl, urlApi, seriesUrl } = require("../helpers/Constant");
-const { extractId, isSeries } = require("../helpers/Extractor");
-const { convertToBanner } = require("../helpers/BannerImage");
+const { baseUrl, urlApi, seriesUrl } = require("../../helpers/Constant");
+const { extractId, isSeries } = require("../../helpers/Extractor");
+const { convertToBanner } = require("../../helpers/BannerImage");
 const { default: Axios } = require("axios");
 
 const genreList = async (req, res) => {

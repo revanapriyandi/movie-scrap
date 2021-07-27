@@ -8,9 +8,9 @@ const {
   westUrl,
   asianUrl,
   moviesUrl,
-} = require("../helpers/Constant");
-const { extractId, isSeries } = require("../helpers/Extractor");
-const { addHttp } = require("../helpers/HttpAddons");
+} = require("../../helpers/Constant");
+const { extractId, isSeries } = require("../../helpers/Extractor");
+const { addHttp } = require("../../helpers/HttpAddons");
 
 const korean = async (req, res, next) => {
   try {

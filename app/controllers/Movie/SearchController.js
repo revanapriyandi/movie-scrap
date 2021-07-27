@@ -5,8 +5,8 @@ const {
   urlApi,
   seriesUrl,
   episodeUrl,
-} = require("../helpers/Constant");
-const { extractId, isSeries } = require("../helpers/Extractor");
+} = require("../../helpers/Constant");
+const { extractId, isSeries } = require("../../helpers/Extractor");
 
 const search = async (req, res, next) => {
   try {

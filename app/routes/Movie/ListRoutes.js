@@ -1,4 +1,4 @@
-const ListController = require("../controllers/ListController");
+const ListController = require("../../controllers/Movie/ListController");
 
 const router = require("express").Router();
 const listRouter = require("express").Router();
@@ -17,6 +17,6 @@ router.get("/movies", ListController.movies);
 
 //router.get("/movies", HomeController.home);
 
-listRouter.use("/list", router);
+listRouter.use("/api/list", router);
 
 module.exports = { listRouter };

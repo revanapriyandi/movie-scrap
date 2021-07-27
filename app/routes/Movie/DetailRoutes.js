@@ -1,5 +1,5 @@
-const DetailController = require("../controllers/DetailController");
-const EpisodeController = require("../controllers/EpisodeController");
+const DetailController = require("../../controllers/Movie/DetailController");
+const EpisodeController = require("../../controllers/Movie/EpisodeController");
 
 const router = require("express").Router();
 const detailRouter = require("express").Router();
@@ -10,6 +10,6 @@ router.get("/movies/:id", DetailController.movies);
 
 //router.get("/movies", HomeController.home);
 
-detailRouter.use("/", router);
+detailRouter.use("/api", router);
 
 module.exports = { detailRouter };
