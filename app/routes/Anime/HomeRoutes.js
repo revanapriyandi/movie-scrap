@@ -1,10 +1,10 @@
-const HomeController = require("../../controllers/Anime/HomeController");
+const AnimeController = require("../../controllers/Anime/HomeController");
 
 var router = require("express").Router();
 var homeAnimeRouter = require("express").Router();
 
-router.get("/home", HomeController.home);
+router.get("/anime/home", AnimeController.home);
 
-homeAnimeRouter.use("/api/anime", router);
+homeAnimeRouter.use("/api", router);
 
 module.exports = { homeAnimeRouter };
