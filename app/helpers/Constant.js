@@ -6,7 +6,7 @@ module.exports = {
   westUrl: "serial-barat/",
   asianUrl: "drama-asia/",
   moviesUrl: "movies/",
-  baseUrlAnime: "https://oploverz.bz/",
+  baseUrlAnime: "https://samehadaku.to/",
   urlApi:
     process.env.MODE === "DEVELOPMENT"
       ? `${process.env.URL_API_DEV}:${process.env.PORT}/api/`

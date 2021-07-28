@@ -10,7 +10,7 @@ const home = async (req, res, next) => {
         const response = await axios.get(baseUrlAnime);
         const $ = cheerio.load(response.data);
         
-        const newReleaseResponse = $(".bixbox").eq(1).find(".listupd").find("article.stylesix");
+        const newReleaseResponse = $(".widget_senction").eq(1).find("ul > li");
 
         let newRelease = [];
         newReleaseResponse.each((i, e) => {
@@ -27,7 +27,7 @@ const home = async (req, res, next) => {
             data: { newRelease },
         });
     } catch (error) {
-        res.send({ status: false, message: error.response });
+        res.send({ status: false, message: error.stack });
     }
 };
 
