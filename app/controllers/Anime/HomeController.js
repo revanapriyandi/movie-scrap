@@ -27,7 +27,7 @@ const home = async (req, res, next) => {
             data: { newRelease },
         });
     } catch (error) {
-        res.send({ status: false, message: error.stack });
+        res.send({ status: false, message: error.response });
     }
 };
 
