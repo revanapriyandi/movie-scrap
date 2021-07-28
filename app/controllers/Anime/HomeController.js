@@ -1,7 +1,7 @@
 const cheerio = require("cheerio");
 const axios  = require("axios");
 const {
-  otakudeBaseUrl,
+  baseUrlAnime,
   urlApi,
   completeAnime,
   onGoingAnime,
@@ -9,16 +9,24 @@ const {
 
 const home = async (req, res, next) => {
     try {
-        const response = await axios.get("https://meownime.moe");
+        const response = await axios.get(baseUrlAnime);
         const $ = cheerio.load(response.data);
 
         const ongoingResponse = $(".site-main").eq(0).find("article");
         
         let ongoing = [];
         ongoingResponse.each((i, elem) => {
-            const url = $(elem).find(".postedon").eq(0).text();
+            const id = $(elem).find(".entry-title").find("a").attr("href").replace(baseUrlAnime, "");
+            const title = $(elem).find(".entry-title").text();
+            const episode = $(elem).find(".featured-thumb").find('.postedon').text();
+            const thumb = $(elem).find(".featured-thumb").find('img').attr("src");
+            const link = `${urlApi}/anime/${id}`;
             ongoing.push({
-                url,
+                id: id,
+                title: title,
+                episode: episode,
+                thumb: thumb,
+                link: link,
             });
         });
 
@@ -26,7 +34,7 @@ const home = async (req, res, next) => {
         res.send({
             status: true,
             message: "success",
-            data: ongoing,
+            data: {ongoing},
         });
 
     } catch (error) {

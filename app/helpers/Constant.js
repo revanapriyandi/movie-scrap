@@ -6,11 +6,7 @@ module.exports = {
   westUrl: "serial-barat/",
   asianUrl: "drama-asia/",
   moviesUrl: "movies/",
-  otakudeBaseUrl: "https://otakudesu.moe/",
-  completeAnime: 'complete-anime/',
-  onGoingAnime: 'ongoing-anime/',
-  schedule: 'jadwal-rilis/',
-  genreList: 'genre-list/',
+  baseUrlAnime: "https://meownime.moe/",
   urlApi:
     process.env.MODE === "DEVELOPMENT"
       ? `${process.env.URL_API_DEV}:${process.env.PORT}/api/`
